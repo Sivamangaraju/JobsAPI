@@ -5,13 +5,13 @@ const app = express();
 //extra security packages
 const helmet=require('helmet')
 const cors=require('cors')
-const xss=require('xss-clean')
+const xxs=require('xss-clean')
 const rateLimiter=require('express-rate-limit')
 
 //Swagger API
-const swaggerUI = require('swagger-ui-express');
-const YAML = require('yamljs');
-const swaggerDocument = YAML.load('./swagger.yaml');
+// const swaggerUI = require('swagger-ui-express');
+// const YAML = require('yamljs');
+// const swaggerDocument = YAML.load('./swagger.yaml');
 
 
 
@@ -45,10 +45,10 @@ app.use(cors())
 app.use(xxs())
 
 //Swagger
-app.get('/', (req, res) => {
-  res.send('<h1>Jobs API</h1><a href="/api-docs">Documentation</a>');
-});
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+// app.get('/', (req, res) => {
+//   res.send('<h1>Jobs API</h1><a href="/api-docs">Documentation</a>');
+// });
+// app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 
 // routes
